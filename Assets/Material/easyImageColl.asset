@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: easyImageColl
   m_EditorClassIdentifier: 
   imageDatas:
+  - image: {fileID: 21300000, guid: 35386d8e9500f3d4196716b73a4fb7f0, type: 3}
+    tooltipText: searching for answers where they can't be found
   - image: {fileID: 21300000, guid: a05e665902cc3424ea182975f14067b9, type: 3}
-    tooltipText: elephant type
+    tooltipText: more trouble than it's worth
   - image: {fileID: 21300000, guid: eae84c57c967d9d41a10d97f8a07b86b, type: 3}
-    tooltipText: feet on snow
+    tooltipText: feeling nervous
+  - image: {fileID: 21300000, guid: 4b7ea2a8f48ff6b41922ec765e8bd34a, type: 3}
+    tooltipText: idiomatic expression to make reconcile

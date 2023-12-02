@@ -11,6 +11,8 @@ public class LoginSteps : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private int countdownDuration = 3;
 
+    public GameObject disableGameInstructionContainer;
+
     //private void Start()
     //{
     //    StartCoroutine(StartCountdown());
@@ -18,6 +20,10 @@ public class LoginSteps : MonoBehaviour
 
     public void Confirm()
     {
+        if (disableGameInstructionContainer != null)
+        {
+            disableGameInstructionContainer.SetActive(false);
+        }
         StartCoroutine(StartCountdown());
     }
     //yield results a wait for a sec to count down

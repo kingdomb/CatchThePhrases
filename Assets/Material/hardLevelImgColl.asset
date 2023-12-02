@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageDatas:
   - image: {fileID: 21300000, guid: 54996a41b2141144ca38658e40de992c, type: 3}
-    tooltipText: Break a leg
+    tooltipText: unusual way to wish good luck
+  - image: {fileID: 21300000, guid: 0837c96a808c608439a547f3cd2236df, type: 3}
+    tooltipText: someone is unusually quiet
+  - image: {fileID: 21300000, guid: 9139db449160fe146894676f7c6ab9dc, type: 3}
+    tooltipText: soldier facing a tough moment

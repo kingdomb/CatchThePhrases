@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* this is function used to manage the difficult level active color */
 public class ButtonColorManger : MonoBehaviour
 {
     public Button initialSelectedButton;

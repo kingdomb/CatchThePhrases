@@ -41,11 +41,6 @@ public class GameStartCountdown : MonoBehaviour
     private float countdown;
 
     public ButtonColorManger buttonColorManger;
-
-    //[Header("tooltip info")]
-    //public CanvasGroup tooltipCanvasGroup;
-    //public Text tooltipText;
-    //public TextMeshProUGUI textComponent;
  
     //when scene load, set the default values of score, the image intiated
     //add event listner to submit button
@@ -137,6 +132,7 @@ public class GameStartCountdown : MonoBehaviour
     //for skip functionlaity
     public void SkipAndMoveToLast()
     {
+        buttonColorManger.KeepExisitngButtonActive();
         // Move the current image to the last index
         if (currentImageIndex < imagecollection.Count - 1)
         {
@@ -219,6 +215,16 @@ public class GameStartCountdown : MonoBehaviour
         bool isCorrect = answerValue.Trim().ToLower() == inputText.Trim().ToLower();
         // Change text color based on correctness
         answerInputField.textComponent.color = isCorrect ? Color.green : Color.black;
+
+        //display correct placehloder
+        if (isCorrect)
+        {
+            resultText.text = "<color=#80b3ff>Correct!</color>";
+        }
+        else
+        {
+            resultText.text = "";
+        }
     }
 }
 

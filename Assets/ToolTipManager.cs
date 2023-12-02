@@ -18,13 +18,9 @@ public class ToolTipManager : MonoBehaviour
         {
             _instance = this;
         }
+        // Ensure the tooltip is initially inactive
+        gameObject.SetActive(false);
     }
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    Cursor.visible = true;
-    //    gameObject.SetActive(false);
-    //}
 
     // Update is called once per frame
     void Update()

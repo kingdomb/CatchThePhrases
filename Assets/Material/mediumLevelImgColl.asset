@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: mediumLevelImgColl
   m_EditorClassIdentifier: 
   imageDatas:
+  - image: {fileID: 21300000, guid: a145303bea3a03d44b43a4c09ec39e96, type: 3}
+    tooltipText: main source of income
+  - image: {fileID: 21300000, guid: c4f36dd5f0f8f004e9dd3340066fe50a, type: 3}
+    tooltipText: very expensive
   - image: {fileID: 21300000, guid: 52f72fdfed8a8a44d84be2b7fc6219ba, type: 3}
-    tooltipText: only one eye can see
+    tooltipText: deliberately not notice something

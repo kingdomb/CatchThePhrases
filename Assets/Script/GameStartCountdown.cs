@@ -11,23 +11,17 @@ using System;
 
 public class GameStartCountdown : MonoBehaviour
 {
-    //public CommonMethodCollection commonMethodCollection;
-
     [Header("Timer")]
     [SerializeField] private float countdownDuration = 5;
-    //[SerializeField] private string sceneToLoad;
     [SerializeField] private TMP_Text countdownText;
 
     private bool _pausedCliked = false;
 
-    [Header("Iamge Collections")]
-    //public List<Sprite> imagecollection;
+    [Header("Image Collections")]
     public List<Common.ImageData> imagecollection;
 
-
-    [Header("Dependent variables")]
+    [Header("Dependent Variables")]
     [SerializeField] private Image imageUI;
-    //[SerializeField] private TMP_InputField answerInputField;
     public TMP_InputField answerInputField;
     [SerializeField] private TMP_Text resultText;
     [SerializeField] private Button submitButton;
@@ -43,14 +37,9 @@ public class GameStartCountdown : MonoBehaviour
     public ButtonColorManger buttonColorManger;
     public AnswerAudioManager answerAudioManager;
 
-    //when scene load, set the default values of score, the image intiated
-    //add event listner to submit button
+    // Initialization when the scene loads
     private void Start()
     {
-        //// Make sure the tooltip is initially hidden
-        //tooltipCanvasGroup.alpha = 0;
-        //tooltipCanvasGroup.blocksRaycasts = false;
-
         buttonColorManger.ChangeButtonColor();
         highestScore = PlayerPrefs.GetInt("HghestScoreRecord", 3);
         score = 0;
@@ -59,28 +48,24 @@ public class GameStartCountdown : MonoBehaviour
 
         UpdateScoreTextValue();
         UpdateHighestScoreTextValue();
-        // Add a cliclk event function to submit button
-        submitButton.onClick.AddListener(ValidateAnswer);
 
-        //Add a click event function to skip button
+        submitButton.onClick.AddListener(ValidateAnswer);
         skipButton.onClick.AddListener(SkipAndMoveToLast);
 
-
         StartCoroutine(StartCountdown());
-        // Subscribe to input field's text change event
         answerInputField.onValueChanged.AddListener(OnInputValueChanged);
     }
 
+    // Coroutine for the countdown timer
     public IEnumerator StartCountdown()
     {
-
         countdown = countdownDuration * 60;
 
         while (countdown > 0)
         {
             if (!_pausedCliked)
             {
-                updateTimerTextValue();
+                UpdateTimerTextValue();
                 yield return new WaitForSeconds(1);
                 countdown--;
             }
@@ -92,32 +77,35 @@ public class GameStartCountdown : MonoBehaviour
 
         countdownText.text = "00:00";
         answerInputField.enabled = false;
-        // Load the specified scene after a delay (you can adjust this delay)
-        yield return new WaitForSeconds(1);
 
+        // Load the next scene after a delay
+        yield return new WaitForSeconds(1);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void updateTimerTextValue()
+    // Update the timer text value
+    public void UpdateTimerTextValue()
     {
         float min = Mathf.Floor(countdown / 60);
         float sec = countdown % 60;
         countdownText.text = string.Format("{0:00}:{1:00}", min, sec);
     }
-    //Pause the game playing 
+
+    // Pause the game
     public void PausedClicked()
     {
         _pausedCliked = true;
-        buttonColorManger.KeepExisitngButtonActive();
-    }
-    //resume game from paused
-    public void resumeClick()
-    {
-        _pausedCliked = false;
-        buttonColorManger.KeepExisitngButtonActive();
+        buttonColorManger.KeepExistingButtonActive();
     }
 
-    //To add image into UA image section
+    // Resume the game from paused state
+    public void ResumeClick()
+    {
+        _pausedCliked = false;
+        buttonColorManger.KeepExistingButtonActive();
+    }
+
+    // Update the displayed image
     public void UpdateImage()
     {
         if (currentImageIndex >= 0 && currentImageIndex < imagecollection.Count)
@@ -130,11 +118,11 @@ public class GameStartCountdown : MonoBehaviour
         }
     }
 
-    //for skip functionlaity
+    // Skip functionality to move the current image to the last index
     public void SkipAndMoveToLast()
     {
-        buttonColorManger.KeepExisitngButtonActive();
-        // Move the current image to the last index
+        buttonColorManger.KeepExistingButtonActive();
+
         if (currentImageIndex < imagecollection.Count - 1)
         {
             Common.ImageData currentImageData = imagecollection[currentImageIndex];
@@ -143,9 +131,11 @@ public class GameStartCountdown : MonoBehaviour
             UpdateImage();
         }
     }
+
+    // Validate the player's answer
     public void ValidateAnswer()
     {
-        buttonColorManger.KeepExisitngButtonActive();
+        buttonColorManger.KeepExistingButtonActive();
         string answerPassed = answerInputField.text;
 
         if (currentImageIndex >= 0 && currentImageIndex < imagecollection.Count)
@@ -165,11 +155,10 @@ public class GameStartCountdown : MonoBehaviour
 
                 UpdateScoreTextValue();
 
-                
-                //increase the time by 20 sec for winner
+                // Increase the time by 20 sec for the winner
                 countdown += 20;
 
-                //set the highest score value
+                // Set the highest score value
                 if (score > highestScore)
                 {
                     PlayerPrefs.SetInt("HghestScoreRecord", score);
@@ -196,42 +185,45 @@ public class GameStartCountdown : MonoBehaviour
                 }
 
                 resultText.text = "<color=#ff5c33>Incorrect. Try again.</color>";
-                
             }
         }
     }
-    //updates player cuyrrent correct value
+
+    // Update the displayed current score
     public void UpdateScoreTextValue()
     {
         scoreText.text = "Current score: " + score;
     }
-    //updates highest score value
+
+    // Update the displayed highest score
     public void UpdateHighestScoreTextValue()
     {
         highestScoreText.text = "Highest Score: " + highestScore;
     }
-    //Method to update the imagecollection per diffcult level choice
+
+    // Method to update the image collection per difficulty level choice
     public void UpdateImageCollection(List<Common.ImageData> newImageCollection)
     {
         imagecollection = newImageCollection;
     }
 
+    // Exit the game
     public void ExitGame()
     {
         PlayerPrefs.SetString("SelectedButtonName", "");
         Application.Quit();
     }
 
+    // Event handler for input field text change
     private void OnInputValueChanged(string inputText)
     {
-        // Check if the entered value exactly matches one of the suggestions
-        //bool isCorrect = suggestions.Contains(inputText);
         string answerValue = imagecollection[currentImageIndex].image.name;
         bool isCorrect = answerValue.Trim().ToLower() == inputText.Trim().ToLower();
+
         // Change text color based on correctness
         answerInputField.textComponent.color = isCorrect ? Color.green : Color.black;
 
-        //display correct placehloder
+        // Display correct placeholder
         if (isCorrect)
         {
             resultText.text = "<color=#80b3ff>Correct!</color>";
@@ -242,5 +234,3 @@ public class GameStartCountdown : MonoBehaviour
         }
     }
 }
-
-

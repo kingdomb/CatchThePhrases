@@ -41,7 +41,8 @@ public class GameStartCountdown : MonoBehaviour
     private float countdown;
 
     public ButtonColorManger buttonColorManger;
- 
+    public AnswerAudioManager answerAudioManager;
+
     //when scene load, set the default values of score, the image intiated
     //add event listner to submit button
     private void Start()
@@ -153,11 +154,18 @@ public class GameStartCountdown : MonoBehaviour
 
             if (answerPassed.Trim().ToLower() == correctAnswer.Trim().ToLower())
             {
+                // Play correct sound
+                if (answerAudioManager != null)
+                {
+                    answerAudioManager.PlayCorrectSound();
+                }
+
                 score++;
                 resultText.text = "<color=#80b3ff>Correct!</color>";
 
                 UpdateScoreTextValue();
 
+                
                 //increase the time by 20 sec for winner
                 countdown += 20;
 
@@ -181,7 +189,14 @@ public class GameStartCountdown : MonoBehaviour
             }
             else
             {
+                // Play incorrect sound
+                if (answerAudioManager != null)
+                {
+                    answerAudioManager.PlayIncorrectSound();
+                }
+
                 resultText.text = "<color=#ff5c33>Incorrect. Try again.</color>";
+                
             }
         }
     }

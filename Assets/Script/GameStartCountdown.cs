@@ -34,6 +34,7 @@ public class GameStartCountdown : MonoBehaviour
     private int highestScore;
     private float countdown;
 
+
     public ButtonColorManger buttonColorManger;
     public AnswerAudioManager answerAudioManager;
 
@@ -144,13 +145,11 @@ public class GameStartCountdown : MonoBehaviour
 
             if (answerPassed.Trim().ToLower() == correctAnswer.Trim().ToLower())
             {
-                // Play correct sound
-                if (answerAudioManager != null)
-                {
-                    answerAudioManager.PlayCorrectSound();
-                }
-
                 score++;
+
+                // Play correct sound
+                answerAudioManager.PlayCorrectSound();
+               
                 resultText.text = "<color=#80b3ff>Correct!</color>";
 
                 UpdateScoreTextValue();
@@ -179,10 +178,7 @@ public class GameStartCountdown : MonoBehaviour
             else
             {
                 // Play incorrect sound
-                if (answerAudioManager != null)
-                {
-                    answerAudioManager.PlayIncorrectSound();
-                }
+                answerAudioManager.PlayIncorrectSound();
 
                 resultText.text = "<color=#ff5c33>Incorrect. Try again.</color>";
             }

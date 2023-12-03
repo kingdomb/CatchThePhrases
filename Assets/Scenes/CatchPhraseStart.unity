@@ -711,7 +711,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 256017283}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.60694194
+  m_Size: 0.63833576
   m_NumberOfSteps: 11
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1144,10 +1144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1881524753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.73983335, y: 0}
-  m_AnchorMax: {x: 0.9746459, y: 0.1398889}
-  m_AnchoredPosition: {x: 4, y: -15.585327}
-  m_SizeDelta: {x: -8, y: -31.171}
+  m_AnchorMin: {x: 0.7164376, y: 0.013}
+  m_AnchorMax: {x: 0.9521667, y: 0.11122223}
+  m_AnchoredPosition: {x: -0.5, y: -4}
+  m_SizeDelta: {x: -10, y: -3.146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192979925
 MonoBehaviour:
@@ -1540,25 +1540,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Objective: \r\n\tTest your skills through three levels of increasing difficulty.\r\n\nNote:
-    Utilize the scroll bar located on the right side of the screen to explore the
-    entire content. The \"Continue...\" button will become active only when you have
-    scrolled to the very bottom.\n\nLevels:\r\n\tThe game offers three levels: easy,
-    medium, and hard.\r\n\tYou can choose any level button you prefer or progress
-    sequentially.\r\n\tEach level presents unique challenges and puzzles.\r\n\nSelecting
-    Levels:\r\n\tAt the start game start from easy level and you can use the level
-    selection menu to choose between easy, medium, and hard. \r\n\tIf you complete
-    a level, you'll automatically progress to the next difficulty level.\r\n\nGuess
-    the phrase:\r\n\tIf you would like to have a hint hover to the image section.
-    \r\n\tRead each puzzle carefully and insert your answer in the input field provided.
-    \r\n\tIf your answer is correct, an indicator will turn the text color to green.\r\n\nSubmit
-    Button:\r\n\tpress the \"Submit\" button after entering your answer to save your
-    progress and move on to the next level.\r\n\nNew Game:\r\n\tUse the \"New Game\"
-    button to reset your game to start from the beginning.\r\n\nPause Button:\r\n\tNeed
-    a break? Press the \"Pause\" button to pause the game. \tYou can resume, restart,
-    or quit from the pause menu.\r\n\nSkip:\r\nIf you find a level too difficult,
-    you can use the \"Skip\" button to move to the next level. Be careful, as you
-    have unlimited number of skips.\n"
+  m_text: "-OBJECTIVE- \r\n\tTest your skills through three levels of increasing
+    difficulty.\r\n\nNOTE: Utilize the scroll bar located on the right side of the
+    screen to explore the entire content. The \"Continue...\" button will become
+    active only when you have scrolled to the very bottom.\n\n-LEVELS-\r\n\tThe game
+    offers three levels: easy, medium, and hard.\r\n\tYou can choose any level button
+    you prefer or progress sequentially.\r\n\tEach level presents unique challenges
+    and puzzles.\r\n\n-SELECTING LEVELS-\n\tAt the start game start from easy level
+    and you can use the level selection menu to choose between easy, medium, and
+    hard. \r\n\tIf you complete a level, you'll automatically progress to the next
+    difficulty level.\r\n\n-GUESS THE PHRASE-\r\n\tIf you would like to have a hint
+    hover to the image section. \r\n\tRead each puzzle carefully and insert your
+    answer in the input field provided. \r\n\tIf your answer is correct, an indicator
+    will turn the text color to green.\r\n\n-SUBMIT BUTTON-\r\n\tpress the \"Submit\"
+    button after entering your answer to save your progress and move on to the next
+    level.\r\n\n-NEW GAME-\n\tUse the \"New Game\" button to reset your game to start
+    from the beginning.\r\n\n-PAUSE BUTTON-\r\n\tNeed a break? Press the \"Pause\"
+    button to pause the game. \tYou can resume, restart, or quit from the pause menu.\r\n\n-SKIP-\r\nIf
+    you find a level too difficult, you can use the \"Skip\" button to move to the
+    next level. Be careful, as you have unlimited number of skips.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1585,14 +1585,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.2
+  m_fontSize: 30.85
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 32
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1613,14 +1613,14 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
+  m_horizontalMapping: 2
+  m_verticalMapping: 1
+  m_uvLineOffset: 20
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
+  m_pageToDisplay: 0
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1885,9 +1885,9 @@ RectTransform:
   m_Father: {fileID: 1146511438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.9534854, y: 1}
+  m_AnchoredPosition: {x: -0.8521118, y: -59.4124}
+  m_SizeDelta: {x: -1.7041, y: 118.825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595127488
 MonoBehaviour:
